@@ -247,14 +247,11 @@
     (property "Value" "AK4103A" (id 1) (at -12.7 -27.94 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
-    (property "Footprint" "akm-VSOP24" (id 2) (at 0 3.81 0)
+    (property "Footprint" "Package_SO:TSSOP-24_6.1x7.8mm_P0.65mm" (id 2) (at 0 3.81 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (id 3) (at 0 0 0)
       (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "ki_locked" "" (id 4) (at 0 0 0)
-      (effects (font (size 1.27 1.27)))
     )
     (symbol "AK4103A_1_0"
       (polyline
