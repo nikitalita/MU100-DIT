@@ -1,0 +1,37 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model 74AHC164PW,118
+#/959978/894240/2.49/14/2/Integrated Circuit
+DEF 74AHC164PW,118 IC 0 30 Y Y 1 F N
+F0 "IC" 850 300 50 H V L CNN
+F1 "74AHC164PW,118" 850 200 50 H V L CNN
+F2 "SOP65P640X110-14N" 850 100 50 H I L CNN
+F3 "https://assets.nexperia.com/documents/data-sheet/74AHC_AHCT164.pdf" 850 0 50 H I L CNN
+F4 "74AHC(T)164 - 8-bit serial-in/parallel-out shift register@en-us" 850 -100 50 H I L CNN "Description"
+F5 "1.1" 850 -200 50 H I L CNN "Height"
+F6 "Nexperia" 850 -300 50 H I L CNN "Manufacturer_Name"
+F7 "74AHC164PW,118" 850 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "771-AHC164PW118" 850 -500 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.com/Search/Refine.aspx?Keyword=771-AHC164PW118" 850 -600 50 H I L CNN "Mouser Price/Stock"
+F10 "74AHC164PW,118" 850 -700 50 H I L CNN "Arrow Part Number"
+F11 "https://www.arrow.com/en/products/74ahc164pw118/nexperia" 850 -800 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X DSA 1 0 0 200 R 50 50 0 0 P
+X DSB 2 0 -100 200 R 50 50 0 0 P
+X Q0 3 0 -200 200 R 50 50 0 0 P
+X Q1 4 0 -300 200 R 50 50 0 0 P
+X Q2 5 0 -400 200 R 50 50 0 0 P
+X Q3 6 0 -500 200 R 50 50 0 0 P
+X GND 7 0 -600 200 R 50 50 0 0 P
+X VCC 14 1000 0 200 L 50 50 0 0 P
+X Q7 13 1000 -100 200 L 50 50 0 0 P
+X Q6 12 1000 -200 200 L 50 50 0 0 P
+X Q5 11 1000 -300 200 L 50 50 0 0 P
+X Q4 10 1000 -400 200 L 50 50 0 0 P
+X ~MR 9 1000 -500 200 L 50 50 0 0 P
+X CP 8 1000 -600 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 800 100 800 -700 200 -700 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library

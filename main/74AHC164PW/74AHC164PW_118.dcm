@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 74AHC164PW,118
+D 74AHC(T)164 - 8-bit serial-in/parallel-out shift register@en-us
+K
+F https://assets.nexperia.com/documents/data-sheet/74AHC_AHCT164.pdf
+$ENDCMP
+#
+#End Doc Library
