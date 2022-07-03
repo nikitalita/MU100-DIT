@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name "footprints")(type "KiCad")(uri "${KIPRJMOD}/footprints")(options "")(descr ""))
+  (lib (name "APX809S")(type "KiCad")(uri "${KIPRJMOD}/APX809S")(options "")(descr ""))
 )

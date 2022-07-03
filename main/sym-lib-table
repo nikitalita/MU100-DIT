@@ -2,4 +2,5 @@
   (lib (name "akm")(type "KiCad")(uri "${KIPRJMOD}/akm.kicad_sym")(options "")(descr ""))
   (lib (name "mbialon")(type "KiCad")(uri "${KIPRJMOD}/mbialon.kicad_sym")(options "")(descr ""))
   (lib (name "selfmade")(type "KiCad")(uri "${KIPRJMOD}/selfmade.kicad_sym")(options "")(descr ""))
+  (lib (name "APX809S")(type "KiCad")(uri "${KIPRJMOD}/APX809S/APX809S.kicad_sym")(options "")(descr ""))
 )
