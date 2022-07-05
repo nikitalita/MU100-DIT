@@ -4,4 +4,5 @@
   (lib (name "74AHC164PW")(type "KiCad")(uri "${KIPRJMOD}/74AHC164PW")(options "")(descr ""))
   (lib (name "PE-65612NL")(type "KiCad")(uri "${KIPRJMOD}/lib/PE-65612NL.pretty")(options "")(descr ""))
   (lib (name "RCJ-044")(type "KiCad")(uri "${KIPRJMOD}/lib/RCJ-044")(options "")(descr ""))
+  (lib (name "Molex-52147-1710")(type "KiCad")(uri "${KIPRJMOD}/lib/Molex-52147-1710")(options "")(descr ""))
 )
