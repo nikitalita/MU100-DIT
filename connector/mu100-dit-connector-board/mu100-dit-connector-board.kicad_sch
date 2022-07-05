@@ -1188,6 +1188,10 @@
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 4147a9f0-8585-4071-af48-8a2de9d3b9fe)
   )
+  (polyline (pts (xy 30.48 86.36) (xy 71.12 86.36))
+    (stroke (width 0) (type default) (color 0 0 0 0))
+    (uuid 42b93640-dc22-413d-916b-9e4ab2755ea6)
+  )
 
   (wire (pts (xy 97.79 78.105) (xy 97.79 88.9))
     (stroke (width 0) (type default) (color 0 0 0 0))
@@ -1378,6 +1382,10 @@
   (polyline (pts (xy 38.735 99.695) (xy 38.735 99.06))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 93e98d14-05ff-4883-89af-984e22b696ce)
+  )
+  (polyline (pts (xy 30.48 76.2) (xy 71.12 76.2))
+    (stroke (width 0) (type default) (color 0 0 0 0))
+    (uuid 94865570-11cc-4b49-8ee4-db024780b3ae)
   )
 
   (wire (pts (xy 83.185 52.07) (xy 84.455 52.07))
@@ -1666,7 +1674,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 13021e74-ebf9-485a-99ef-9b0190e7f9ac)
   )
-  (text "Note: pins 6 and 10 are actually connected on the MU90 \nmain board, although they are not actually used on the MU90R \nAnalog board"
+  (text "Note: pins 6 and 10 are actually connected on the MU90 \nmain board, although they are not actually connected on the MU90R \nAnalog board"
     (at 67.945 41.275 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 1c30089f-fe88-4bbd-9460-896cdc171d41)
