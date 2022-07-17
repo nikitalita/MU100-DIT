@@ -20,7 +20,15 @@ The main board has been designed to fit within the limited back panel space on t
 
 ## Schematics:
 
-**TODO**
+### Main board
+![image](https://user-images.githubusercontent.com/69168929/179423754-d52216fb-1cc9-4fc4-ad0a-abd354910dbe.png)
+![kicad_DPyMCWLxIo](https://user-images.githubusercontent.com/69168929/179424924-cec83a69-bd84-4424-b4f6-b045f0588fc9.png)
+
+### MU100/MU90 Connector board
+![image](https://user-images.githubusercontent.com/69168929/179424441-e1b0f351-4cc6-4a31-9fa0-50293128b733.png)
+
+![image](https://user-images.githubusercontent.com/69168929/179424835-b6d6c176-a9a0-4f71-8d41-2f23c120d1b3.png)
+
 
 ## Installation instructions:
 
