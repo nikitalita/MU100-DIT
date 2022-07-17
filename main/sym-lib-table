@@ -1,8 +1,7 @@
 (sym_lib_table
-  (lib (name "akm")(type "KiCad")(uri "${KIPRJMOD}/akm.kicad_sym")(options "")(descr ""))
-  (lib (name "selfmade")(type "KiCad")(uri "${KIPRJMOD}/selfmade.kicad_sym")(options "")(descr ""))
-  (lib (name "APX809S")(type "KiCad")(uri "${KIPRJMOD}/APX809S/APX809S.kicad_sym")(options "")(descr ""))
-  (lib (name "74AHC164PW_118")(type "KiCad")(uri "${KIPRJMOD}/74AHC164PW/74AHC164PW_118.kicad_sym")(options "")(descr ""))
-  (lib (name "PE-65612NL")(type "KiCad")(uri "${KIPRJMOD}/lib/PE-65612NL.kicad_sym")(options "")(descr ""))
+  (lib (name "akm")(type "KiCad")(uri "${KIPRJMOD}/lib/akm.kicad_sym")(options "")(descr ""))
+  (lib (name "selfmade")(type "KiCad")(uri "${KIPRJMOD}/lib/selfmade.kicad_sym")(options "")(descr ""))
+  (lib (name "APX809S")(type "KiCad")(uri "${KIPRJMOD}/lib/APX809S/APX809S.kicad_sym")(options "")(descr ""))
+  (lib (name "PE-65612NL")(type "KiCad")(uri "${KIPRJMOD}/lib/PE-65612NL/PE-65612NL.kicad_sym")(options "")(descr ""))
   (lib (name "RCJ-044")(type "KiCad")(uri "${KIPRJMOD}/lib/RCJ-044/RCJ-044.kicad_sym")(options "")(descr ""))
 )

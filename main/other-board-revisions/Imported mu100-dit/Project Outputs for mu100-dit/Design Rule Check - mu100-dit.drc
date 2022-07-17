@@ -1,0 +1,123 @@
+Protel Design System Design Rule Check
+PCB File : C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc
+Date     : 7/6/2022
+Time     : 6:24:54 PM
+
+Processing Rule : Clearance Constraint (Gap=0.5mm) (InPadClass('Pad Class Clearance 0.5')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.2mm) (InPadClass('Pad Class Clearance 0.15')),(All)
+   Violation between Clearance Constraint: (0.15mm < 0.2mm) Between Pad JP6-2(13.61mm,-23.29mm) on B.Cu And Track (14.135mm,-25.06mm)(14.135mm,-22.49mm) on B.Cu 
+Rule Violations :1
+
+Processing Rule : Clearance Constraint (Gap=0.5mm) (InNamedPolygon('F.Cu-GND') OR InNamedPolygon('F.Cu-GND-1') OR InNamedPolygon('In1.Cu-GND') OR InNamedPolygon('In2.Cu-GND') OR InNamedPolygon('B.Cu-GND') OR InNamedPolygon('B.Cu-GND-1')),(All)
+   Violation between Clearance Constraint: (0.407mm < 0.5mm) Between Polygon Region (18 hole(s)) F.Cu And Track (8.25mm,-5.538mm)(9.448mm,-5.538mm) on F.Cu 
+   Violation between Clearance Constraint: (0.413mm < 0.5mm) Between Polygon Region (18 hole(s)) F.Cu And Track (9.448mm,-5.538mm)(9.525mm,-5.461mm) on F.Cu 
+   Violation between Clearance Constraint: (0.299mm < 0.5mm) Between Polygon Region (18 hole(s)) F.Cu And Via (9.525mm,-5.461mm) from F.Cu to B.Cu 
+   Violation between Clearance Constraint: (0.342mm < 0.5mm) Between Polygon Region (20 hole(s)) B.Cu And Via (5.08mm,-4.064mm) from F.Cu to B.Cu 
+   Violation between Clearance Constraint: (0.342mm < 0.5mm) Between Polygon Region (20 hole(s)) B.Cu And Via (5.08mm,-4.064mm) from F.Cu to B.Cu 
+   Violation between Clearance Constraint: (0.299mm < 0.5mm) Between Polygon Region (20 hole(s)) B.Cu And Via (9.525mm,-5.461mm) from F.Cu to B.Cu 
+   Violation between Clearance Constraint: (0.299mm < 0.5mm) Between Polygon Region (20 hole(s)) B.Cu And Via (9.525mm,-5.461mm) from F.Cu to B.Cu 
+   Violation between Clearance Constraint: (0.408mm < 0.5mm) Between Polygon Region (21 hole(s)) In1.Cu And Track (5.08mm,-6.08mm)(5.08mm,-4.064mm) on In1.Cu 
+   Violation between Clearance Constraint: (0.408mm < 0.5mm) Between Polygon Region (21 hole(s)) In1.Cu And Track (5.08mm,-6.08mm)(5.188mm,-6.188mm) on In1.Cu 
+   Violation between Clearance Constraint: (0.408mm < 0.5mm) Between Polygon Region (21 hole(s)) In1.Cu And Via (5.08mm,-4.064mm) from F.Cu to B.Cu 
+   Violation between Clearance Constraint: (0.342mm < 0.5mm) Between Polygon Region (30 hole(s)) In2.Cu And Via (5.08mm,-4.064mm) from F.Cu to B.Cu 
+   Violation between Clearance Constraint: (0.299mm < 0.5mm) Between Polygon Region (30 hole(s)) In2.Cu And Via (9.525mm,-5.461mm) from F.Cu to B.Cu 
+Rule Violations :12
+
+Processing Rule : Clearance Constraint (Gap=0.2mm) (IsTrack),(IsTrack)
+   Violation between Clearance Constraint: (0.2mm < 0.2mm) Between Track (13.6mm,-26.965mm)(14.789mm,-25.775mm) on F.Cu And Track (14.35mm,-26.85mm)(14.775mm,-26.425mm) on F.Cu 
+   Violation between Clearance Constraint: (0.2mm < 0.2mm) Between Track (13.6mm,-26.965mm)(14.789mm,-25.775mm) on F.Cu And Track (14.35mm,-27.7mm)(14.35mm,-26.85mm) on F.Cu 
+   Violation between Clearance Constraint: (0.2mm < 0.2mm) Between Track (13.6mm,-26.965mm)(14.789mm,-25.775mm) on F.Cu And Track (14.775mm,-26.425mm)(15.513mm,-26.425mm) on F.Cu 
+   Violation between Clearance Constraint: (0.2mm < 0.2mm) Between Track (3.9mm,-7.65mm)(6.233mm,-9.983mm) on F.Cu And Track (6.858mm,-11.938mm)(6.858mm,-9.434mm) on F.Cu 
+   Violation between Clearance Constraint: (0.2mm < 0.2mm) Between Track (6.233mm,-13.733mm)(6.233mm,-9.983mm) on F.Cu And Track (6.858mm,-11.938mm)(6.858mm,-9.434mm) on F.Cu 
+   Violation between Clearance Constraint: (0.2mm < 0.2mm) Between Track (6.233mm,-13.733mm)(6.233mm,-9.983mm) on F.Cu And Track (6.858mm,-11.938mm)(8.64mm,-13.72mm) on F.Cu 
+Rule Violations :6
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+   Violation between Short-Circuit Constraint: Between Pad U3-3(3.85mm,-4.685mm) on F.Cu And Track (2.35mm,-4.7mm)(3.45mm,-4.7mm) on F.Cu Location : [X = 81.324mm][Y = 35.3mm]
+   Violation between Short-Circuit Constraint: Between Pad U3-3(3.85mm,-4.685mm) on F.Cu And Track (3.45mm,-4.7mm)(3.9mm,-5.15mm) on F.Cu Location : [X = 81.549mm][Y = 35.041mm]
+   Violation between Short-Circuit Constraint: Between Pad U3-3(3.85mm,-4.685mm) on F.Cu And Track (3.9mm,-7.65mm)(3.9mm,-5.15mm) on F.Cu Location : [X = 81.65mm][Y = 34.829mm]
+Rule Violations :3
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net GND Between Pad U3-2(4.765mm,-6.615mm) on F.Cu And Pad C1-1(8.05mm,-3.662mm) on F.Cu 
+   Violation between Un-Routed Net Constraint: Net RESET Between Track (2.35mm,-4.7mm)(3.45mm,-4.7mm) on F.Cu And Pad U3-1(2.935mm,-6.615mm) on F.Cu 
+   Violation between Un-Routed Net Constraint: Net +5V Between Pad U3-3(3.85mm,-4.685mm) on F.Cu And Via (5.08mm,-4.064mm) from F.Cu to B.Cu 
+Rule Violations :3
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.25mm) (Max=10mm) (Preferred=0.25mm) (All)
+   Violation between Width Constraint: Arc (12.26mm,-29.71mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (12.26mm,-30.21mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (12.31mm,-20.745mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (12.31mm,-21.245mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (12.31mm,-23.04mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (12.31mm,-23.54mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (12.31mm,-25.335mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (12.31mm,-25.835mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (13.56mm,-29.71mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (13.56mm,-30.21mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (13.61mm,-20.745mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (13.61mm,-21.245mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (13.61mm,-23.04mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (13.61mm,-23.54mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (13.61mm,-25.335mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (13.61mm,-25.835mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (6.74mm,-20.5mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (6.74mm,-21mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (6.74mm,-22.825mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (6.74mm,-23.325mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (6.74mm,-25.12mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (6.74mm,-25.62mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (6.74mm,-27.415mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (6.74mm,-27.915mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (6.74mm,-29.71mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (6.74mm,-30.21mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (8.04mm,-20.5mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (8.04mm,-21mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (8.04mm,-22.825mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (8.04mm,-23.325mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (8.04mm,-25.12mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (8.04mm,-25.62mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (8.04mm,-27.415mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (8.04mm,-27.915mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (8.04mm,-29.71mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+   Violation between Width Constraint: Arc (8.04mm,-30.21mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm
+Rule Violations :36
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)
+   Violation between Hole Size Constraint: (3.2mm > 2.54mm) Pad H1-1(13.6mm,-3.5mm) on Multi-Layer Actual Hole Size = 3.2mm
+   Violation between Hole Size Constraint: (3.2mm > 2.54mm) Pad H2-1(13.6mm,-36.5mm) on Multi-Layer Actual Hole Size = 3.2mm
+   Violation between Hole Size Constraint: (3.2mm > 2.54mm) Pad U1-Un1(12.78mm,-9.91mm) on Multi-Layer Actual Hole Size = 3.2mm
+   Violation between Hole Size Constraint: (3.2mm > 2.54mm) Pad U1-Un2(12.78mm,-17.53mm) on Multi-Layer Actual Hole Size = 3.2mm
+Rule Violations :4
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0mm) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+   Violation between Net Antennae: Track (2.35mm,-4.7mm)(3.45mm,-4.7mm) on F.Cu 
+Rule Violations :1
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+
+Violations Detected : 66
+Waived Violations : 0
+Time Elapsed        : 00:00:01

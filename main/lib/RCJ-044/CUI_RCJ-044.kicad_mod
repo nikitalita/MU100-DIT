@@ -1,6 +1,6 @@
 (footprint "CUI_RCJ-044" (version 20211014) (generator pcbnew)
   (layer "F.Cu")
-  (tedit 62C5DBAB)
+  (tedit 62D45E0E)
   (attr through_hole)
   (fp_text reference "REF**" (at -6.805775 -6.677905) (layer "F.SilkS")
     (effects (font (size 1.006465 1.006465) (thickness 0.15)))

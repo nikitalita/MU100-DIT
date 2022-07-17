@@ -1,0 +1,566 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD22\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">7/6/2022</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">6:24:54 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc" class="file"><acronym title="C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc">C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">66</td></tr>
+</table>
+</td>
+</table><a name="IDQ4VWKXP2H1A1D3AL1GHVAF3JUD4IQ0VIJNMPIYCVCX4O5035RXFB"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYWTLKXSAIJJSGWBV41235KTMFNLQKXUJOF1ZWVPWKGL5PYLRJKBP">Clearance Constraint (Gap=0.5mm) (InPadClass('Pad Class Clearance 0.5')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3GMZYMZLBLN2BMDHCFMDDLIYNNSZ2XTJOUUFT4LYCX3UJUXWD0LF">Clearance Constraint (Gap=0.2mm) (InPadClass('Pad Class Clearance 0.15')),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4KIKK1S2KG5YKLU1BC33L4HS3KSVCNVEXHC1SVB5M4XTWZDY5IN">Clearance Constraint (Gap=0.5mm) (InNamedPolygon('F.Cu-GND') OR InNamedPolygon('F.Cu-GND-1') OR InNamedPolygon('In1.Cu-GND') OR InNamedPolygon('In2.Cu-GND') OR InNamedPolygon('B.Cu-GND') OR InNamedPolygon('B.Cu-GND-1')),(All)</a></td>
+<td class="column2">12</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDM2O0K5YOFJTXI3KLYTH0ULX3VGSOEIROQR3KZOCKMWTPAJB0SAJG">Clearance Constraint (Gap=0.2mm) (IsTrack),(IsTrack)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDO5YJ5NT42JS4P40WC0RGHL512DQJDDNJHXD21QO4PRUORGRPHQVK">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">3</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPPXING203ZHGEJIKFHPIOIIL1OGDZY4NX3F3DDP3IN433TQ0RBOC">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">3</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEYURPB10T5PFBKBWOILGCAUIWWDO1HRH4ZDRCHNWEMSIRM0U2OJ">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4VB104BRR0PMNGHKEX4LDPQKSP5W2K1N520YNIGGD3KQV55UMF4E">Width Constraint (Min=0.25mm) (Max=10mm) (Preferred=0.25mm) (All)</a></td>
+<td class="column2">36</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2H3IQLBXU352KDEMZBXBHR0CUBLJFK0AUH0UFKFW4EDLQK4TLAYI">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHLJRYT2PYGAUBZHWQHBNVOMJPPF0O2VRFOXC2JGR34RMWJUHRA3">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWV3L5HSP2RLZIRE2RL1DDK4YDPBZALBDJRXT1XDJK0ZHGAKTZV1H">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1IJ1KYI2JJHMJB1YXYUZ4N1CTOXCLQQFZKB0XJJHDU031CUENRGB">Minimum Solder Mask Sliver (Gap=0mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQAKPFRMYFDBRL3VIOUYCFL0F3KZNNVCLQPUO2WPS4LDUC25C5EJB">Silk To Solder Mask (Clearance=0mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDD4MCRJXCEV2PEWE3D2NEE1OQCOYNROXZ0JXTNQLXY0EOCJ3LQDSI">Silk to Silk (Clearance=0mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDE5CGPWRB01Q0IJM11M4DUH5LPEPNS2RPW31E4VF3RGPD2EZSCJH">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPE1Y2WYD4JG1OYJMUTYSAP1KCE0W1LHT5ZEWMRB1O32G4WFWDQWC">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">66</td>
+</tr>
+</table><br><a name="ID3GMZYMZLBLN2BMDHCFMDDLIYNNSZ2XTJOUUFT4LYCX3UJUXWD0LF"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.2mm) (InPadClass('Pad Class Clearance 0.15')),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3605.074mil|Location2.X=3614.198mil|Location1.Y=643.47mil|Location2.Y=652.593mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3605.074mil|Location2.X=3614.198mil|Location1.Y=643.47mil|Location2.Y=652.593mil|Absolute=True">Clearance Constraint: (0.15mm &lt; 0.2mm) Between Pad JP6-2(13.61mm,-23.29mm) on B.Cu And Track (14.135mm,-25.06mm)(14.135mm,-22.49mm) on B.Cu </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID4KIKK1S2KG5YKLU1BC33L4HS3KSVCNVEXHC1SVB5M4XTWZDY5IN"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.5mm) (InNamedPolygon('F.Cu-GND') OR InNamedPolygon('F.Cu-GND-1') OR InNamedPolygon('In1.Cu-GND') OR InNamedPolygon('In2.Cu-GND') OR InNamedPolygon('B.Cu-GND') OR InNamedPolygon('B.Cu-GND-1')),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.093mil|Location2.X=3451.445mil|Location1.Y=1330.443mil|Location2.Y=1351.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.093mil|Location2.X=3451.445mil|Location1.Y=1330.443mil|Location2.Y=1351.378mil|Absolute=True">Clearance Constraint: (0.407mm &lt; 0.5mm) Between Polygon Region (18 hole(s)) F.Cu And Track (8.25mm,-5.538mm)(9.448mm,-5.538mm) on F.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3420.454mil|Location2.X=3452.927mil|Location1.Y=1330.457mil|Location2.Y=1351.392mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3420.454mil|Location2.X=3452.927mil|Location1.Y=1330.457mil|Location2.Y=1351.392mil|Absolute=True">Clearance Constraint: (0.413mm &lt; 0.5mm) Between Polygon Region (18 hole(s)) F.Cu And Track (9.448mm,-5.538mm)(9.525mm,-5.461mm) on F.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3422.733mil|Location2.X=3455.206mil|Location1.Y=1327.891mil|Location2.Y=1348.826mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3422.733mil|Location2.X=3455.206mil|Location1.Y=1327.891mil|Location2.Y=1348.826mil|Absolute=True">Clearance Constraint: (0.299mm &lt; 0.5mm) Between Polygon Region (18 hole(s)) F.Cu And Via (9.525mm,-5.461mm) from F.Cu to B.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3236.869mil|Location2.X=3265.302mil|Location1.Y=1383.661mil|Location2.Y=1407.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3236.869mil|Location2.X=3265.302mil|Location1.Y=1383.661mil|Location2.Y=1407.433mil|Absolute=True">Clearance Constraint: (0.342mm &lt; 0.5mm) Between Polygon Region (20 hole(s)) B.Cu And Via (5.08mm,-4.064mm) from F.Cu to B.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3236.869mil|Location2.X=3265.302mil|Location1.Y=1383.661mil|Location2.Y=1407.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3236.869mil|Location2.X=3265.302mil|Location1.Y=1383.661mil|Location2.Y=1407.433mil|Absolute=True">Clearance Constraint: (0.342mm &lt; 0.5mm) Between Polygon Region (20 hole(s)) B.Cu And Via (5.08mm,-4.064mm) from F.Cu to B.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3422.733mil|Location2.X=3455.206mil|Location1.Y=1327.891mil|Location2.Y=1348.826mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3422.733mil|Location2.X=3455.206mil|Location1.Y=1327.891mil|Location2.Y=1348.826mil|Absolute=True">Clearance Constraint: (0.299mm &lt; 0.5mm) Between Polygon Region (20 hole(s)) B.Cu And Via (9.525mm,-5.461mm) from F.Cu to B.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3422.733mil|Location2.X=3455.206mil|Location1.Y=1327.891mil|Location2.Y=1348.826mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3422.733mil|Location2.X=3455.206mil|Location1.Y=1327.891mil|Location2.Y=1348.826mil|Absolute=True">Clearance Constraint: (0.299mm &lt; 0.5mm) Between Polygon Region (20 hole(s)) B.Cu And Via (9.525mm,-5.461mm) from F.Cu to B.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3226.77mil|Location2.X=3247.705mil|Location1.Y=1313.548mil|Location2.Y=1345.901mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3226.77mil|Location2.X=3247.705mil|Location1.Y=1313.548mil|Location2.Y=1345.901mil|Absolute=True">Clearance Constraint: (0.408mm &lt; 0.5mm) Between Polygon Region (21 hole(s)) In1.Cu And Track (5.08mm,-6.08mm)(5.08mm,-4.064mm) on In1.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3226.77mil|Location2.X=3247.705mil|Location1.Y=1313.548mil|Location2.Y=1345.901mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3226.77mil|Location2.X=3247.705mil|Location1.Y=1313.548mil|Location2.Y=1345.901mil|Absolute=True">Clearance Constraint: (0.408mm &lt; 0.5mm) Between Polygon Region (21 hole(s)) In1.Cu And Track (5.08mm,-6.08mm)(5.188mm,-6.188mm) on In1.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3226.77mil|Location2.X=3247.705mil|Location1.Y=1392.918mil|Location2.Y=1425.271mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3226.77mil|Location2.X=3247.705mil|Location1.Y=1392.918mil|Location2.Y=1425.271mil|Absolute=True">Clearance Constraint: (0.408mm &lt; 0.5mm) Between Polygon Region (21 hole(s)) In1.Cu And Via (5.08mm,-4.064mm) from F.Cu to B.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3236.869mil|Location2.X=3265.302mil|Location1.Y=1383.661mil|Location2.Y=1407.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3236.869mil|Location2.X=3265.302mil|Location1.Y=1383.661mil|Location2.Y=1407.433mil|Absolute=True">Clearance Constraint: (0.342mm &lt; 0.5mm) Between Polygon Region (30 hole(s)) In2.Cu And Via (5.08mm,-4.064mm) from F.Cu to B.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3422.733mil|Location2.X=3455.206mil|Location1.Y=1327.891mil|Location2.Y=1348.826mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3422.733mil|Location2.X=3455.206mil|Location1.Y=1327.891mil|Location2.Y=1348.826mil|Absolute=True">Clearance Constraint: (0.299mm &lt; 0.5mm) Between Polygon Region (30 hole(s)) In2.Cu And Via (9.525mm,-5.461mm) from F.Cu to B.Cu </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDM2O0K5YOFJTXI3KLYTH0ULX3VGSOEIROQR3KZOCKMWTPAJB0SAJG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.2mm) (IsTrack),(IsTrack)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3615.165mil|Location2.X=3624.289mil|Location1.Y=519.412mil|Location2.Y=528.536mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3615.165mil|Location2.X=3624.289mil|Location1.Y=519.412mil|Location2.Y=528.536mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.2mm) Between Track (13.6mm,-26.965mm)(14.789mm,-25.775mm) on F.Cu And Track (14.35mm,-26.85mm)(14.775mm,-26.425mm) on F.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3615.165mil|Location2.X=3624.289mil|Location1.Y=519.412mil|Location2.Y=528.536mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3615.165mil|Location2.X=3624.289mil|Location1.Y=519.412mil|Location2.Y=528.536mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.2mm) Between Track (13.6mm,-26.965mm)(14.789mm,-25.775mm) on F.Cu And Track (14.35mm,-27.7mm)(14.35mm,-26.85mm) on F.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3631.897mil|Location2.X=3641.021mil|Location1.Y=536.144mil|Location2.Y=545.268mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3631.897mil|Location2.X=3641.021mil|Location1.Y=536.144mil|Location2.Y=545.268mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.2mm) Between Track (13.6mm,-26.965mm)(14.789mm,-25.775mm) on F.Cu And Track (14.775mm,-26.425mm)(15.513mm,-26.425mm) on F.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.723mil|Location2.X=3319.847mil|Location1.Y=1177.191mil|Location2.Y=1186.315mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.723mil|Location2.X=3319.847mil|Location1.Y=1177.191mil|Location2.Y=1186.315mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.2mm) Between Track (3.9mm,-7.65mm)(6.233mm,-9.983mm) on F.Cu And Track (6.858mm,-11.938mm)(6.858mm,-9.434mm) on F.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.723mil|Location2.X=3319.847mil|Location1.Y=1100.241mil|Location2.Y=1109.365mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.723mil|Location2.X=3319.847mil|Location1.Y=1100.241mil|Location2.Y=1109.365mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.2mm) Between Track (6.233mm,-13.733mm)(6.233mm,-9.983mm) on F.Cu And Track (6.858mm,-11.938mm)(6.858mm,-9.434mm) on F.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.723mil|Location2.X=3319.847mil|Location1.Y=1100.241mil|Location2.Y=1109.365mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.723mil|Location2.X=3319.847mil|Location1.Y=1100.241mil|Location2.Y=1109.365mil|Absolute=True">Clearance Constraint: (0.2mm &lt; 0.2mm) Between Track (6.233mm,-13.733mm)(6.233mm,-9.983mm) on F.Cu And Track (6.858mm,-11.938mm)(8.64mm,-13.72mm) on F.Cu </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDO5YJ5NT42JS4P40WC0RGHL512DQJDDNJHXD21QO4PRUORGRPHQVK"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Short-Circuit Constraint (Allowed=No) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3198.871mil|Location2.X=3204.595mil|Location1.Y=1386.901mil|Location2.Y=1392.626mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3198.871mil|Location2.X=3204.595mil|Location1.Y=1386.901mil|Location2.Y=1392.626mil|Absolute=True">Short-Circuit Constraint: Between Pad U3-3(3.85mm,-4.685mm) on F.Cu And Track (2.35mm,-4.7mm)(3.45mm,-4.7mm) on F.Cu Location : [X = 81.324mm][Y = 35.3mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3193.659mil|Location2.X=3227.524mil|Location1.Y=1362.639mil|Location2.Y=1396.503mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3193.659mil|Location2.X=3227.524mil|Location1.Y=1362.639mil|Location2.Y=1396.503mil|Absolute=True">Short-Circuit Constraint: Between Pad U3-3(3.85mm,-4.685mm) on F.Cu And Track (3.45mm,-4.7mm)(3.9mm,-5.15mm) on F.Cu Location : [X = 81.549mm][Y = 35.041mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3205.359mil|Location2.X=3223.775mil|Location1.Y=1362.005mil|Location2.Y=1380.422mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3205.359mil|Location2.X=3223.775mil|Location1.Y=1362.005mil|Location2.Y=1380.422mil|Absolute=True">Short-Circuit Constraint: Between Pad U3-3(3.85mm,-4.685mm) on F.Cu And Track (3.9mm,-7.65mm)(3.9mm,-5.15mm) on F.Cu Location : [X = 81.65mm][Y = 34.829mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDPPXING203ZHGEJIKFHPIOIIL1OGDZY4NX3F3DDP3IN433TQ0RBOC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3237.622mil|Location2.X=3406.496mil|Location1.Y=1289.362mil|Location2.Y=1453.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3237.622mil|Location2.X=3406.496mil|Location1.Y=1289.362mil|Location2.Y=1453.74mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U3-2(4.765mm,-6.615mm) on F.Cu And Pad C1-1(8.05mm,-3.662mm) on F.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3053.543mil|Location2.X=3276.575mil|Location1.Y=1289.764mil|Location2.Y=1414.362mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3053.543mil|Location2.X=3276.575mil|Location1.Y=1289.764mil|Location2.Y=1414.362mil|Absolute=True">Un-Routed Net Constraint: Net RESET Between Track (2.35mm,-4.7mm)(3.45mm,-4.7mm) on F.Cu And Pad U3-1(2.935mm,-6.615mm) on F.Cu </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3201.598mil|Location2.X=3276.772mil|Location1.Y=1365.362mil|Location2.Y=1430.551mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3201.598mil|Location2.X=3276.772mil|Location1.Y=1365.362mil|Location2.Y=1430.551mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad U3-3(3.85mm,-4.685mm) on F.Cu And Via (5.08mm,-4.064mm) from F.Cu to B.Cu </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID4VB104BRR0PMNGHKEX4LDPQKSP5W2K1N520YNIGGD3KQV55UMF4E"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Width Constraint (Min=0.25mm) (Max=10mm) (Preferred=0.25mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3527.973mil|Location2.X=3539.643mil|Location1.Y=403.618mil|Location2.Y=411.933mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3527.973mil|Location2.X=3539.643mil|Location1.Y=403.618mil|Location2.Y=411.933mil|Absolute=True">Width Constraint: Arc (12.26mm,-29.71mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3527.973mil|Location2.X=3539.643mil|Location1.Y=383.933mil|Location2.Y=392.248mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3527.973mil|Location2.X=3539.643mil|Location1.Y=383.933mil|Location2.Y=392.248mil|Absolute=True">Width Constraint: Arc (12.26mm,-30.21mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3529.942mil|Location2.X=3541.612mil|Location1.Y=756.571mil|Location2.Y=764.886mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3529.942mil|Location2.X=3541.612mil|Location1.Y=756.571mil|Location2.Y=764.886mil|Absolute=True">Width Constraint: Arc (12.31mm,-20.745mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3529.942mil|Location2.X=3541.612mil|Location1.Y=736.886mil|Location2.Y=745.201mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3529.942mil|Location2.X=3541.612mil|Location1.Y=736.886mil|Location2.Y=745.201mil|Absolute=True">Width Constraint: Arc (12.31mm,-21.245mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3529.942mil|Location2.X=3541.612mil|Location1.Y=666.216mil|Location2.Y=674.532mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3529.942mil|Location2.X=3541.612mil|Location1.Y=666.216mil|Location2.Y=674.532mil|Absolute=True">Width Constraint: Arc (12.31mm,-23.04mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3529.942mil|Location2.X=3541.612mil|Location1.Y=646.532mil|Location2.Y=654.846mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3529.942mil|Location2.X=3541.612mil|Location1.Y=646.532mil|Location2.Y=654.846mil|Absolute=True">Width Constraint: Arc (12.31mm,-23.54mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3529.942mil|Location2.X=3541.612mil|Location1.Y=575.862mil|Location2.Y=584.177mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3529.942mil|Location2.X=3541.612mil|Location1.Y=575.862mil|Location2.Y=584.177mil|Absolute=True">Width Constraint: Arc (12.31mm,-25.335mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3529.942mil|Location2.X=3541.612mil|Location1.Y=556.177mil|Location2.Y=564.492mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3529.942mil|Location2.X=3541.612mil|Location1.Y=556.177mil|Location2.Y=564.492mil|Absolute=True">Width Constraint: Arc (12.31mm,-25.835mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3579.155mil|Location2.X=3590.825mil|Location1.Y=403.618mil|Location2.Y=411.933mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3579.155mil|Location2.X=3590.825mil|Location1.Y=403.618mil|Location2.Y=411.933mil|Absolute=True">Width Constraint: Arc (13.56mm,-29.71mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3579.155mil|Location2.X=3590.825mil|Location1.Y=383.933mil|Location2.Y=392.248mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3579.155mil|Location2.X=3590.825mil|Location1.Y=383.933mil|Location2.Y=392.248mil|Absolute=True">Width Constraint: Arc (13.56mm,-30.21mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3581.123mil|Location2.X=3592.793mil|Location1.Y=756.571mil|Location2.Y=764.886mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3581.123mil|Location2.X=3592.793mil|Location1.Y=756.571mil|Location2.Y=764.886mil|Absolute=True">Width Constraint: Arc (13.61mm,-20.745mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3581.123mil|Location2.X=3592.793mil|Location1.Y=736.886mil|Location2.Y=745.201mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3581.123mil|Location2.X=3592.793mil|Location1.Y=736.886mil|Location2.Y=745.201mil|Absolute=True">Width Constraint: Arc (13.61mm,-21.245mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3581.123mil|Location2.X=3592.793mil|Location1.Y=666.216mil|Location2.Y=674.532mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3581.123mil|Location2.X=3592.793mil|Location1.Y=666.216mil|Location2.Y=674.532mil|Absolute=True">Width Constraint: Arc (13.61mm,-23.04mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3581.123mil|Location2.X=3592.793mil|Location1.Y=646.532mil|Location2.Y=654.846mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3581.123mil|Location2.X=3592.793mil|Location1.Y=646.532mil|Location2.Y=654.846mil|Absolute=True">Width Constraint: Arc (13.61mm,-23.54mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3581.123mil|Location2.X=3592.793mil|Location1.Y=575.862mil|Location2.Y=584.177mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3581.123mil|Location2.X=3592.793mil|Location1.Y=575.862mil|Location2.Y=584.177mil|Absolute=True">Width Constraint: Arc (13.61mm,-25.335mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3581.123mil|Location2.X=3592.793mil|Location1.Y=556.177mil|Location2.Y=564.492mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3581.123mil|Location2.X=3592.793mil|Location1.Y=556.177mil|Location2.Y=564.492mil|Absolute=True">Width Constraint: Arc (13.61mm,-25.835mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.651mil|Location2.X=3322.32mil|Location1.Y=766.216mil|Location2.Y=774.532mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.651mil|Location2.X=3322.32mil|Location1.Y=766.216mil|Location2.Y=774.532mil|Absolute=True">Width Constraint: Arc (6.74mm,-20.5mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.651mil|Location2.X=3322.32mil|Location1.Y=746.532mil|Location2.Y=754.847mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.651mil|Location2.X=3322.32mil|Location1.Y=746.532mil|Location2.Y=754.847mil|Absolute=True">Width Constraint: Arc (6.74mm,-21mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.651mil|Location2.X=3322.32mil|Location1.Y=674.681mil|Location2.Y=682.996mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.651mil|Location2.X=3322.32mil|Location1.Y=674.681mil|Location2.Y=682.996mil|Absolute=True">Width Constraint: Arc (6.74mm,-22.825mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.651mil|Location2.X=3322.32mil|Location1.Y=654.996mil|Location2.Y=663.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.651mil|Location2.X=3322.32mil|Location1.Y=654.996mil|Location2.Y=663.311mil|Absolute=True">Width Constraint: Arc (6.74mm,-23.325mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.65mil|Location2.X=3322.32mil|Location1.Y=584.327mil|Location2.Y=592.642mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.65mil|Location2.X=3322.32mil|Location1.Y=584.327mil|Location2.Y=592.642mil|Absolute=True">Width Constraint: Arc (6.74mm,-25.12mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.65mil|Location2.X=3322.32mil|Location1.Y=564.642mil|Location2.Y=572.957mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.65mil|Location2.X=3322.32mil|Location1.Y=564.642mil|Location2.Y=572.957mil|Absolute=True">Width Constraint: Arc (6.74mm,-25.62mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.65mil|Location2.X=3322.32mil|Location1.Y=493.972mil|Location2.Y=502.287mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.65mil|Location2.X=3322.32mil|Location1.Y=493.972mil|Location2.Y=502.287mil|Absolute=True">Width Constraint: Arc (6.74mm,-27.415mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.65mil|Location2.X=3322.32mil|Location1.Y=474.287mil|Location2.Y=482.602mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.65mil|Location2.X=3322.32mil|Location1.Y=474.287mil|Location2.Y=482.602mil|Absolute=True">Width Constraint: Arc (6.74mm,-27.915mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.651mil|Location2.X=3322.32mil|Location1.Y=403.618mil|Location2.Y=411.933mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.651mil|Location2.X=3322.32mil|Location1.Y=403.618mil|Location2.Y=411.933mil|Absolute=True">Width Constraint: Arc (6.74mm,-29.71mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.651mil|Location2.X=3322.32mil|Location1.Y=383.933mil|Location2.Y=392.248mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.651mil|Location2.X=3322.32mil|Location1.Y=383.933mil|Location2.Y=392.248mil|Absolute=True">Width Constraint: Arc (6.74mm,-30.21mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=766.216mil|Location2.Y=774.532mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=766.216mil|Location2.Y=774.532mil|Absolute=True">Width Constraint: Arc (8.04mm,-20.5mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=746.532mil|Location2.Y=754.847mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=746.532mil|Location2.Y=754.847mil|Absolute=True">Width Constraint: Arc (8.04mm,-21mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=674.681mil|Location2.Y=682.996mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=674.681mil|Location2.Y=682.996mil|Absolute=True">Width Constraint: Arc (8.04mm,-22.825mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=654.996mil|Location2.Y=663.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=654.996mil|Location2.Y=663.311mil|Absolute=True">Width Constraint: Arc (8.04mm,-23.325mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=584.327mil|Location2.Y=592.642mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=584.327mil|Location2.Y=592.642mil|Absolute=True">Width Constraint: Arc (8.04mm,-25.12mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=564.642mil|Location2.Y=572.957mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=564.642mil|Location2.Y=572.957mil|Absolute=True">Width Constraint: Arc (8.04mm,-25.62mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=493.972mil|Location2.Y=502.287mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=493.972mil|Location2.Y=502.287mil|Absolute=True">Width Constraint: Arc (8.04mm,-27.415mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=474.287mil|Location2.Y=482.602mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=474.287mil|Location2.Y=482.602mil|Absolute=True">Width Constraint: Arc (8.04mm,-27.915mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=403.618mil|Location2.Y=411.933mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=403.618mil|Location2.Y=411.933mil|Absolute=True">Width Constraint: Arc (8.04mm,-29.71mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=383.933mil|Location2.Y=392.248mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3361.832mil|Location2.X=3373.502mil|Location1.Y=383.933mil|Location2.Y=392.248mil|Absolute=True">Width Constraint: Arc (8.04mm,-30.21mm) on B.Cu Actual Width = 0mm, Target Width = 0.25mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDHLJRYT2PYGAUBZHWQHBNVOMJPPF0O2VRFOXC2JGR34RMWJUHRA3"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3532.84mil|Location2.X=3660.074mil|Location1.Y=1373.391mil|Location2.Y=1500.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3532.84mil|Location2.X=3660.074mil|Location1.Y=1373.391mil|Location2.Y=1500.625mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad H1-1(13.6mm,-3.5mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3532.84mil|Location2.X=3660.074mil|Location1.Y=74.178mil|Location2.Y=201.412mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3532.84mil|Location2.X=3660.074mil|Location1.Y=74.178mil|Location2.Y=201.412mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad H2-1(13.6mm,-36.5mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3500.556mil|Location2.X=3627.79mil|Location1.Y=1121.029mil|Location2.Y=1248.263mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3500.556mil|Location2.X=3627.79mil|Location1.Y=1121.029mil|Location2.Y=1248.263mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad U1-Un1(12.78mm,-9.91mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3500.556mil|Location2.X=3627.79mil|Location1.Y=821.029mil|Location2.Y=948.263mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3500.556mil|Location2.X=3627.79mil|Location1.Y=821.029mil|Location2.Y=948.263mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad U1-Un2(12.78mm,-17.53mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDE5CGPWRB01Q0IJM11M4DUH5LPEPNS2RPW31E4VF3RGPD2EZSCJH"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3145.122mil|Location2.X=3168.539mil|Location1.Y=1381.343mil|Location2.Y=1415.259mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\workspace\MU100-DIT\main\Imported mu100-dit\mu100-dit.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3145.122mil|Location2.X=3168.539mil|Location1.Y=1381.343mil|Location2.Y=1415.259mil|Absolute=True">Net Antennae: Track (2.35mm,-4.7mm)(3.45mm,-4.7mm) on F.Cu </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
