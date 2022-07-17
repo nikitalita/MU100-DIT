@@ -32,7 +32,9 @@ The main board has been designed to fit within the limited back panel space on t
 
 ## Installation instructions:
 
-**TODO**
+For the Yamaha MU100/MU90, the DIF0 must be bridged, all others left floating.
+
+**TODO: Rest of instructions**
 
 ## Other compatible synths
 This includes the following synthesizers:
